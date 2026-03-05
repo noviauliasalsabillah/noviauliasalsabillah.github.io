@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Novi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fdf6f4;
+    color:#5a4a4a;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    background:#fffafa;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 10%;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+    z-index:1000;
+}
+
+nav h3{
+    color:#c67b88;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#5a4a4a;
+    font-weight:500;
+}
+
+/* HERO */
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:0 10%;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.hero-text span{
+    color:#c67b88;
+}
+
+/* HERO BUTTON */
+.hero-button{
+    margin-top:25px;
+}
+
+.btn-explore{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 28px;
+    background:linear-gradient(135deg,#e6a4b4,#c67b88);
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    border-radius:30px;
+    box-shadow:0 8px 20px rgba(198,123,136,0.3);
+    transition:all 0.3s ease;
+}
+
+.btn-explore span{
+    transition:transform 0.3s ease;
+}
+
+.btn-explore:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 25px rgba(198,123,136,0.4);
+}
+
+.btn-explore:hover span{
+    transform:translateY(5px);
+}
+
+/* SECTION */
+section{
+    padding:70px 10%;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#c67b88;
+}
+
+/* CARD */
+.card{
+    background:#fffafa;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+    margin-bottom:20px;
+}
+
+/* SKILLS */
+.skills-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+}
+
+.skill-box{
+    background:#f8e4e1;
+    padding:18px;
+    border-radius:12px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.skill-box:hover{
+    transform:translateY(-5px);
+}
+
+/* PROJECT */
+.project-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.project-box{
+    background:#fffafa;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.05);
+    transition:0.3s;
+}
+
+.project-box:hover{
+    transform:translateY(-5px);
+}
+
+.project-box img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.project-content{
+    padding:15px;
+}
+
+/* EDUCATION */
+.edu-item{
+    margin-bottom:15px;
+}
+
+/* CONTACT */
+.contact-icons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:15px;
+    flex-wrap:wrap;
+}
+
+.contact-icons a{
+    text-decoration:none;
+    background:#f8e4e1;
+    padding:10px 18px;
+    border-radius:25px;
+    color:#5a4a4a;
+    transition:0.3s;
+}
+
+.contact-icons a:hover{
+    background:#e6a4b4;
+    color:white;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:40px 20px;
+    background:#f8e4e1;
+    margin-top:30px;
+}
+
+.footer-photo{
+    margin-bottom:15px;
+}
+
+.footer-photo img{
+    width:160px;          /* bisa 150–180 sesuai selera */
+    height:160px;         /* HARUS sama supaya perfect circle */
+    object-fit:cover;     
+    border-radius:50%;
+    border:6px solid #f8e4e1;   /* ring nude soft */
+    box-shadow:0 10px 25px rgba(198,123,136,0.25);
+    transition:0.3s ease;
+}
+
+.footer-photo img:hover{
+    transform:scale(1.05);
+}
+
+.footer-photo img:hover{
+    transform:translateY(-4px);
+}
+
+.footer-photo img:hover{
+    transform:scale(1.05);
+}
+
+.motto{
+    font-style:italic;
+    margin-top:10px;
+    color:#8c5b63;
+}
+
+@media(max-width:900px){
+    .hero{
+        text-align:center;
+    }
+}
+</style>
+</head>
+<body>
+x
+<nav>
+    <h3>Novi</h3>
+    <ul>
+        <li><a href="#about">About</a></li>
+         <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Hi, I'm <span>Novi</span></h1>
+        <p>Mahasiswa Ilmu Komputer yang sedang berkembang di bidang teknologi dan web development.</p>
+        <div class="hero-button">
+            <a href="#about" class="btn-explore">
+                Explore <span>↓</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+<p>
+Halo, saya Novi Aulia Salsabillah, mahasiswa Ilmu Komputer yang memiliki minat pada pengembangan web dan teknologi informasi. Saat ini saya sedang memperdalam dasar-dasar pemrograman serta membangun website sederhana yang rapi dan fungsional. Saya berkomitmen untuk terus belajar dan berkembang secara konsisten.
+</p>
+    </div>
+</section>
+<section id="education">
+    <h2>Education</h2>
+    <div class="card">
+        <div class="edu-item"><strong>2012 - 2018</strong> | MI Baitul Qur'an (SD)</div>
+        <div class="edu-item"><strong>2018 - 2021</strong> | MTS Qur'an Centre (SMP)</div>
+        <div class="edu-item"><strong>2021 - 2024</strong> | SMKN 4 Kendari (SMA)</div>
+        <div class="edu-item"><strong>2024 - Sekarang</strong> | S1 Ilmu Komputer – Universitas Halu Oleo</div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill-box">💻 Microsoft Office</div>
+        <div class="skill-box">🎨 Canva</div>
+        <div class="skill-box">🌐 HTML & CSS (Basic)</div>
+        <div class="skill-box">☕ Java (Basic)</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+    <div class="project-container">
+        <div class="project-box">
+            <img src="https://images.unsplash.com/photo-1522199710521-72d69614c702" alt="">
+            <div class="project-content">
+                <h4>Website Portfolio</h4>
+                <p>Membuat website pribadi menggunakan HTML & CSS dengan desain responsive.</p>
+            </div>
+        </div>
+
+        <div class="project-box">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" alt="">
+            <div class="project-content">
+                <h4>Program Data Mahasiswa</h4>
+                <p>Membuat program Java sederhana untuk menampilkan data mahasiswa.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <div class="contact-icons">
+            <a href="mailto:nommnommm103@gmail.com">📧 Email</a>
+            <a href="https://github.com/noviauliasalsabillah" target="_blank">🐱 GitHub</a>
+            <a href="https://www.instagram.com/noviauliasalsabillah_/" target="_blank">📸 @noviauliasalsabillah</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-photo">
+        <img src="foto aku lagi.jpeg" alt="Novi">
+    </div>
+    <p>© 2026 Novi Aulia Salsabillah</p>
+    <p class="motto">
+        "Belajar dengan sabar, bertumbuh dengan pelan, dan terus melangkah tanpa menyerah."
+    </p>
+</footer>
+
+<script>
+ScrollReveal().reveal('.hero-text, .card, .skill-box, .project-box, .footer-photo', {
+    distance: '40px',
+    duration: 1000,
+    easing: 'ease-in-out',
+    origin: 'bottom',
+    interval: 150
+});
+</script>
+
+</body>
+</html>
