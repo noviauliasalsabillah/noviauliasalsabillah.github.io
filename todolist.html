@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>To Do List Novi</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ffd6e7, #ffeaf4);
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  padding: 50px 20px 20px;
+  animation: fadeDown 1s ease;
+}
+
+.header h1 {
+  margin: 0;
+  color: #ff6f91;
+  font-size: 28px;
+}
+
+.header p {
+  margin-top: 8px;
+  color: #777;
+}
+
+/* ANIMASI HEADER */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CONTAINER */
+.container {
+  width: 350px;
+  margin: auto;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(255,182,193,0.4);
+  animation: fadeUp 1s ease;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ffc0cb;
+  box-sizing: border-box;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  background: #ff8fab;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #ff6f91;
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+/* TASK */
+.task {
+  background: white;
+  margin-top: 15px;
+  padding: 12px 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(255,182,193,0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeUp 0.4s ease;
+}
+
+.task:hover {
+  transform: scale(1.03);
+}
+
+/* TEXT */
+.task span {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* DELETE BUTTON */
+.task button {
+  width: auto;
+  padding: 5px 10px;
+  margin: 0;
+  background: #ff6f91;
+  border-radius: 8px;
+}
+
+/* DONE */
+.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+/* ANIMASI TASK */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ICON LUCU */
+.icon {
+  font-size: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+ <h1>🌸 Jadwal Kegiatan Liburan 🐻</h1>
+<p>Rencanakan aktivitas seru selama liburanmu ✨</p>
+</div>
+
+<div class="container">
+
+  <!-- INPUT -->
+  <div class="card">
+    <input type="text" id="taskInput" placeholder="Tulis Rencana Kegiatanmu di sini... 💖">
+    <button onclick="addTask()">+ Tambah Tugas</button>
+  </div>
+
+  <!-- LIST -->
+  <div id="taskList"></div>
+
+</div>
+
+<script>
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+function render() {
+  const list = document.getElementById("taskList");
+  list.innerHTML = "";
+
+  tasks.forEach((task, i) => {
+    const div = document.createElement("div");
+    div.className = "task";
+
+    div.innerHTML = `
+      <span onclick="toggle(${i})" class="${task.done ? 'done' : ''}">
+        🧸 ${task.text}
+      </span>
+      <button onclick="hapus(${i})">❌</button>
+    `;
+
+    list.appendChild(div);
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function addTask() {
+  const input = document.getElementById("taskInput");
+
+  if (!input.value) {
+    alert("Isi dulu tugasnya yaa 💕");
+    return;
+  }
+
+  tasks.push({ text: input.value, done: false });
+  input.value = "";
+  render();
+}
+
+function toggle(i) {
+  tasks[i].done = !tasks[i].done;
+  render();
+}
+
+function hapus(i) {
+  tasks.splice(i, 1);
+  render();
+}
+
+/* ENTER */
+document.getElementById("taskInput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    addTask();
+  }
+});
+
+render();
+</script>
+
+</body>
+</html>
